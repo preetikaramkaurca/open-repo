@@ -1,0 +1,15 @@
+
+{
+  "name": "recaptcha-enterprise-demo",
+  "version": "1.0.0",
+  "description": "Node.js + Frontend demo for Google reCAPTCHA Enterprise score-based validation",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "@google-cloud/recaptcha-enterprise": "^4.0.0",
+    "body-parser": "^1.20.2",
+    "express": "^4.18.2"
+  }
+}
