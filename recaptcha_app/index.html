@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>reCAPTCHA v3 Demo</title>
+  <script src="https://www.google.com/recaptcha/api.js?render=6Lf-pGQsAAAAAI7eGYM_AiVEJL1QYz9QuQSDhJlI"></script>
+</head>
+<body>
+  <h2>Contact Form</h2>
+  <form id="demo-form">
+    <input type="text" name="name" placeholder="Name" required><br><br>
+    <input type="email" name="email" placeholder="Email" required><br><br>
+    <button type="submit">Submit</button>
+  </form>
+  <p id="result"></p>
+
+<script>
+document.getElementById("demo-form").addEventListener("submit", function(e){
+  e.preventDefault();
+  grecaptcha.ready(function(){
+    grecaptcha.execute("6Lf-pGQsAAAAAI7eGYM_AiVEJL1QYz9QuQSDhJlI",{action:"submit"})
+    .then(function(token){
+      fetch("/verify",{
+        method:"POST",
+        headers:{"Content-Type":"application/json"},
+        body:JSON.stringify({token})
+      })
+      .then(r=>r.json())
+      .then(res=>{
+        document.getElementById("result").innerText =
+          res.success ? "Human ✔ Score: "+res.score : "Bot detected ✖";
+      });
+    });
+  });
+});
+</script>
+</body>
+</html>
