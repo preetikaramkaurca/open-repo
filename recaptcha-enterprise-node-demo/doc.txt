@@ -1,2 +1,7 @@
 AIzaSyBIyy5KWUsoME3nyQMGz-fXG2JblvdW26s
 6Lf-pGQsAAAAAI7eGYM_AiVEJL1QYz9QuQSDhJlI
+
+
+API KEY: AIzaSyBIyy5KWUsoME3nyQMGz-fXG2JblvdW26s
+Site Key: 6Ldc_WQsAAAAAK4_Z-s3Bl4L8F5HpziHfUQoHbWm
+projectID: aem-adaptive-form-recaptcha

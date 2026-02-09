@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://www.google.com/recaptcha/enterprise.js?render=6Lf-pGQsAAAAAI7eGYM_AiVEJL1QYz9QuQSDhJlI"></script>
+</head>
+<body>
+<form method="POST" action="/verify" id="f">
+  <input type="hidden" name="token" id="token">
+  <button type="button" onclick="go()">Submit</button>
+</form>
+<script>
+function go(){
+  grecaptcha.enterprise.ready(function(){
+    grecaptcha.enterprise.execute("6Lf-pGQsAAAAAI7eGYM_AiVEJL1QYz9QuQSDhJlI",{action:"login"}).then(function(t){
+      document.getElementById("token").value=t;
+      document.getElementById("f").submit();
+    });
+  });
+}
+</script>
+</body>
+</html>
