@@ -5,3 +5,11 @@ AIzaSyBIyy5KWUsoME3nyQMGz-fXG2JblvdW26s
 API KEY: AIzaSyBIyy5KWUsoME3nyQMGz-fXG2JblvdW26s
 Site Key: 6Ldc_WQsAAAAAK4_Z-s3Bl4L8F5HpziHfUQoHbWm
 projectID: aem-adaptive-form-recaptcha
+
+
+com.adobe.cq.forms.core.components.internal.services.recaptcha	DEBUG
+com.adobe.cq.forms.recaptcha.enterprise	DEBUG
+com.adobe.cq.forms.common.service.impl	DEBUG
+com.adobe.cq.forms.af.core.impl	DEBUG
+org.apache.http.wire	DEBUG
+org.apache.http.headers
