@@ -12,18 +12,30 @@ const puppeteer = require("puppeteer");
 
   const page = await browser.newPage();
 
-  // VERY bot-like user agent
   await page.setUserAgent(
     "Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)"
   );
 
-  await page.goto("http://localhost:4502/content/forms/af/your-form.html", {
-    waitUntil: "networkidle2"
-  });
+  await page.goto(
+    "http://localhost:4502/content/myformsite/us/en/home.html?wcmmode=disabled",
+    { waitUntil: "networkidle0" }
+  );
 
-  // No mouse, no scroll, no delays = bot behavior
-  await page.type("input[name='firstName']", "BotTest");
-  await page.type("input[name='email']", "bot@test.com");
+  // Wait for AF runtime
+  await page.waitForFunction(() => {
+    return window.guideBridge && window.guideBridge.getFormModel;
+  }, { timeout: 45000 });
+
+  // Wait for first field
+  await page.waitForSelector("#textinput-eb3da4ca01-widget", { timeout: 15000 });
+
+  await page.type("#textinput-eb3da4ca01-widget", "BOT-123");
+  await page.type("#textinput-2263f8757f-widget", "Bot User");
+  await page.type("#textinput-4f6b7c59ce-widget", "bot@test.com");
+
+  await page.evaluate(() => {
+    document.querySelector("button[type='submit']").removeAttribute("disabled");
+  });
 
   await page.click("button[type='submit']");
 
