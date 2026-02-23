@@ -15,7 +15,7 @@ const puppeteer = require("puppeteer");
   await page.setUserAgent(
     "Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)"
   );
-
+// https://experienceleaguecommunities.adobe.com/adobe-experience-manager-forms-10/how-to-override-default-submit-spinner-in-aem-core-components-adaptive-form-248688?tid=248688&postid=747157#post747157
   await page.goto(
     "http://localhost:4502/content/myformsite/us/en/home.html?wcmmode=disabled",
     { waitUntil: "networkidle0" }
