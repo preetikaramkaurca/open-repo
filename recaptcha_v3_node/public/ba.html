@@ -67,23 +67,26 @@
                             .shift();
                 };
 
-                const isProvisionalUser = () => {
+                const shouldShowLoggedInContent = () => {
                     try {
                         const userProfileJson = sessionStorage.getItem('userProfile');
                         if (!userProfileJson || userProfileJson === 'undefined') {
-                            return false;
+                            return true;
                         }
                         const userProfile = JSON.parse(userProfileJson);
                         console.log('userProfile', userProfile);
-                        return userProfile && userProfile.provisional === true;
+                        if (!('provisional' in userProfile)) {
+                            return true;
+                        }
+                        return userProfile.provisional !== true;
                     } catch (e) {
-                        return false;
+                        return true;
                     }
                 };
 
                 const updateLoginStateContainer = () => {
                     const authenticated = !!getDceCookie();
-                    const showLoggedIn = authenticated && !isProvisionalUser();
+                    const showLoggedIn = authenticated && shouldShowLoggedInContent();
 
                     document.body.classList.remove(
                         'cmp-login-state-container--auth',
