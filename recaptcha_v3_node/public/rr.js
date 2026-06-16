@@ -18,16 +18,19 @@ import { getCustomerName } from 'js/cookie';
 import { isAuthenticated } from 'js/helpers';
 const componentName = 'cmp-ribbon';
 class Ribbon extends Component {
-    isProvisionalUser() {
+    shouldShowAuthenticatedContent() {
         try {
             const userProfileJson = sessionStorage.getItem('userProfile');
             if (!userProfileJson || userProfileJson === 'undefined') {
-                return false;
+                return true;
             }
             const userProfile = JSON.parse(userProfileJson);
-            return userProfile && userProfile.provisional === true;
+            if (!('provisional' in userProfile)) {
+                return true;
+            }
+            return userProfile.provisional !== true;
         } catch (e) {
-            return false;
+            return true;
         }
     }
 
@@ -36,7 +39,7 @@ class Ribbon extends Component {
      */
     async displayComponent() {
         const firstName = await getCustomerName();
-        if (firstName !== null && isAuthenticated() && !this.isProvisionalUser()) {
+        if (firstName !== null && isAuthenticated() && this.shouldShowAuthenticatedContent()) {
             this.$els.welcomeTextContainer.closest('.ribbon').hidden = false;
             this.$els.welcomeTextSelector.innerHTML = `${this.$els.welcomeTextSelector.innerHTML} ${firstName}!`;
         }
