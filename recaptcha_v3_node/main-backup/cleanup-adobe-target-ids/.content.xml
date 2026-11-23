@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0"
+          xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+          jcr:primaryType="nt:unstructured"
+          jcr:title="Cleanup Adobe Target Ids"
+          jcr:description="Removes Adobe Target metadata whose offer id is no longer returned by Target."
+          icon="delete"
+          href="/apps/usf-aem-cloud-base/wcm/components/content/cleanup-adobe-target-ids/v1/cleanup-adobe-target-ids.html"
+          id="usfoods-tools-cleanup-adobe-target-ids"/>

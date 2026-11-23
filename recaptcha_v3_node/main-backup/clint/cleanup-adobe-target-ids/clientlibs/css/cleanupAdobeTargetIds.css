@@ -1,0 +1,34 @@
+.cleanup-target-form {
+    box-sizing: border-box;
+    width: 52rem;
+    max-width: calc(100% - 3rem);
+    margin: 1.5rem auto 2rem;
+}
+
+.cleanup-target-form .coral-Form-fieldwrapper,
+.cleanup-target-form .coral-Form-field,
+.cleanup-target-form foundation-autocomplete {
+    width: 100%;
+    max-width: 100%;
+}
+
+.cleanup-target-progress-mount,
+.cleanup-target-result {
+    box-sizing: border-box;
+    width: 100%;
+    max-width: none;
+    margin-top: 1rem;
+}
+
+#cleanupTargetProgressLabel {
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+}
+
+#cleanupTargetProgress {
+    width: 100%;
+}
+
+.cleanup-target-result {
+    white-space: pre-wrap;
+}

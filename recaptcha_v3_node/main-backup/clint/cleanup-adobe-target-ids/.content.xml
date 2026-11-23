@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
+          xmlns:jcr="http://www.jcp.org/jcr/1.0"
+          xmlns:granite="http://www.adobe.com/jcr/granite/1.0"
+          xmlns:cq="http://www.day.com/jcr/cq/1.0"
+          xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+          jcr:primaryType="cq:Page">
+    <jcr:content
+        jcr:primaryType="nt:unstructured"
+        jcr:description="Removes Adobe Target metadata whose offer id is no longer returned by Target."
+        jcr:title="Cleanup Adobe Target Ids"
+        sling:resourceType="granite/ui/components/shell/page"
+        consoleId="cleanup-adobe-target-ids">
+        <head jcr:primaryType="nt:unstructured">
+            <clientlibs jcr:primaryType="nt:unstructured"
+                        categories="[granite.ui.coral.foundation,usf.cleanup-adobe-target-ids]"
+                        sling:resourceType="granite/ui/components/foundation/includeclientlibs"/>
+        </head>
+        <title
+            jcr:primaryType="nt:unstructured"
+            jcr:title="Cleanup Adobe Target Ids"
+            jcr:description="Select a path under /content/experience-fragments."
+            sling:resourceType="granite/ui/components/shell/title"/>
+        <content
+            granite:class="cleanup-target-form"
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="granite/ui/components/coral/foundation/container">
+            <items jcr:primaryType="nt:unstructured">
+                <inputBox
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="granite/ui/components/coral/foundation/form/pathfield"
+                    fieldLabel="Experience fragment path"
+                    fieldDescription="Select any path under /content/experience-fragments."
+                    rootPath="/content/experience-fragments"
+                    name="./path"
+                    forceSelection="{Boolean}true"
+                    required="{Boolean}true"/>
+                <submitButton
+                    granite:id="cleanupTargetSubmit"
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="granite/ui/components/coral/foundation/button"
+                    text="Submit"
+                    type="button"/>
+                <progressMount
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="granite/ui/components/coral/foundation/form/field"
+                    fieldLabel="\0"
+                    wrapperClass="cleanup-target-progress-mount"/>
+                <resultMessage
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="granite/ui/components/coral/foundation/form/field"
+                    fieldLabel="\0"
+                    wrapperClass="cleanup-target-result"/>
+            </items>
+        </content>
+    </jcr:content>
+</jcr:root>

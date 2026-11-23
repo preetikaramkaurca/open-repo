@@ -1,0 +1,8 @@
+{
+    "enabled": "$[env:USF_TARGET_CLEANUP_ENABLED;default=false]",
+    "clientId": "$[env:USF_TARGET_CLIENT_ID;default=]",
+    "clientSecret": "$[env:USF_TARGET_CLIENT_SECRET;default=]",
+    "scopes": "$[env:USF_TARGET_SCOPES;default=]",
+    "tenantId": "$[env:USF_TARGET_TENANT_ID;default=]",
+    "workspaceId": "$[env:USF_TARGET_WORKSPACE_ID;default=]"
+}
